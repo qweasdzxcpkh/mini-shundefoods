@@ -1,0 +1,48 @@
+<!--miniprogram/pages/locationDetail/locationDetail.wxml-->
+<view class="location-container">
+  <view class="location-detail">
+    <text class="location-content">{{ marker.content }}</text>
+  </view>
+  <view class="location-per-cost">
+    {{ marker.per_cost }}
+  </view>
+  <view class="location-recommend-foods">
+    <text>推荐菜式：</text>
+    <text class="" decode="nbsp"
+      wx:for="{{ marker.recommend }}"
+      wx:key="idx"
+      wx:for-item="item">{{ item.name }}&nbsp;</text>
+  </view>
+  <scroll-view class="location-recommend" scroll-x>
+    <image class="location-recommend-image"
+      wx:for="{{ marker.recommend }}"
+      wx:key="idx"
+      wx:for-item="item"
+      style="width: 200px; height: 200px;"
+      src="{{ item.image_url }}">
+    </image>
+  </scroll-view>
+  <view class="location-address">
+    <view class="location-address-left">{{ marker.address }}</view>
+    <view class="location-address-center" bindtap="openPhoneCall"></view>
+    <view class="location-address-right" bindtap="openLocation"></view>
+  </view>
+  <view class="bussiness-time">
+    <text>营业时间：</text>
+    <text style="margin-left: 15rpx;">{{ BusinessDays }}</text>
+    <text style="margin-left: 15rpx;">{{ BusinessHours }}</text>
+  </view>
+
+</view>
+<view class="bottom-tab">
+  <view style="width: 50%; border-right: 1px solid rgba(0, 0, 0, 0.1);">
+  <button plain style="border: 0px;" bindtap="onTapLike">
+    <text class="iconfont icon-heart-fill {{ isLike ? 'icon-heart-fill-color-red' : ''}}">喜欢</text>
+  </button>
+  </view>
+  <view style="width: 50%;">
+  <button plain style="border: 0px;" bindtap="onTapWantGo">
+    <text class="iconfont icon-xiangqu {{ isWantGo ? 'icon-xiangqu-color-blue' : '' }}">想去</text>
+  </button>
+  </view>
+</view>

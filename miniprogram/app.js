@@ -8,6 +8,19 @@ App({
       wx.cloud.init({
         traceUser: true,
       })
+      // wx.cloud.callFunction({
+      //   // 云函数名称
+      //   name: 'sum',
+      //   // 传给云函数的参数
+      //   data: {
+      //     a: 1,
+      //     b: 8,
+      //   },
+      // })
+      // .then(res => {
+      //     console.log(res.result) // 3
+      // })
+      // .catch(console.error)
     }
 
     this.globalData = {}
